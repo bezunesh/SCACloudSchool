@@ -24,7 +24,6 @@
     <code> yusuf@ip-172-26-7-195:~$ chgrp SCASchool intro_to_devop.txt</code>   
 
 5. Give write permission on the text file to the group <i>SCASchool</i>   
-    <code> yusuf@ip-172-26-7-195:~$ chmod g\+rw intro_to_devop.txt  </code>  
+    <code> yusuf@ip-172-26-7-195:\~$ chmod g\+rw intro_to_devop.txt  </code>  
     <code>yusuf@ip-172-26-7-195:~$ ls -la </code>  
-    <b>output:</b>  
-    -rw-rw---- 1 yusuf SCASchool  329 Feb  4 19:55 intro_to_devop.txt
+    <b>output:</b>
