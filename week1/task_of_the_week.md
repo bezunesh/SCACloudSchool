@@ -1,6 +1,6 @@
 ## Task of the week
 
-1. Create 3 groups and 15 users  
+1. Create 3 groups 
    `echo group1 group2 group3 | sudo xargs -n1 -p groupadd`
 
 2. Create 15 users and assign them accross the groups created above  
