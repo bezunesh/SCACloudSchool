@@ -17,11 +17,11 @@ print(){
 }
 
 checkboard(){
-        if [ ! ${board[$1]} = "_" ] && [ ${board[$1]} = ${board[$2]} ] && [ ${board[$2]} = ${board[$3]} ]
+    if [ ! ${board[$1]} = "_" ] && [ ${board[$1]} = ${board[$2]} ] && [ ${board[$2]} = ${board[$3]} ]
 	then
-                echo "${board[$1]} won!"
+        echo "${board[$1]} won the game!"
 		play=0
-        fi
+    fi
 	return 1
 }
 
