@@ -22,7 +22,6 @@ checkboard(){
         echo "${board[$1]} won the game!"
 		play=0
     fi
-	return 1
 }
 
 checkstatus(){
