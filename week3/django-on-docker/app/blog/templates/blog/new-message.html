@@ -1,0 +1,8 @@
+<h4>Add new message</h4>
+<form action="{% url 'blog:save-message' %}" method="post">
+    {% csrf_token %} 
+    <div>
+        {{ form.text}}
+    </div>
+    <p><button type="submit" > Save </button></p>
+</form>

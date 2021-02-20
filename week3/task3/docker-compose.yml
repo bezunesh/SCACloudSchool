@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports: 
+      - 8000:80
+    volumes: 
+      - ./site.conf:/etc/nginx/conf.d/site.conf
+      - ./code:/code

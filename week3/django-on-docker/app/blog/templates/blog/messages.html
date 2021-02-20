@@ -1,0 +1,13 @@
+
+{% if msgs %}
+<h4>Here are your messages</h4>
+    <ul>
+    {% for m in msgs%}
+        <li>{{ m }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>>There are no messages!</p>
+{% endif %}
+
+<a href="{% url 'blog:new-message' %}">Add New message</a>

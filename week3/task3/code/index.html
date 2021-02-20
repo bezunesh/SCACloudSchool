@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<HTML>
+<head>
+    <title>Week3 - Docker Containers</title>
+</head>
+<body>
+    <h3>Image Immutablity - From Nginx</h3>
+    <p>Mount</hp>
+    <pre>
+        docker run -d \
+            -it \
+            --name sca-nginx \
+            --mount type=bind,source="$(pwd)"/data,target=/usr/share/nginx/html \
+            -p 8080:80 \
+            sca/nginx
+
+
+
+        docker inspect sca-nginx
+
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/Users/bezu/projects/SCACloudSchool/week3/task1-nginx/data",
+                "Destination": "/usr/share/nginx/html",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        </pre>
+</body>
+</HTML>
