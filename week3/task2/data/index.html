@@ -12,29 +12,5 @@
         you simply redeploy the old image. This approach allows you to deploy the same container image in every one of your environments, 
         making them as identical as possible.
     </p>
-    <p>Task 3 : a run command that creates a mount</p>
-    <pre>
-        docker run -d \
-            -it \
-            --name sca-nginx \
-            --mount type=bind,source="$(pwd)"/data,target=/usr/share/nginx/html \
-            -p 8080:80 \
-            sca/nginx
-
-
-
-        docker inspect sca-nginx
-
-        "Mounts": [
-            {
-                "Type": "bind",
-                "Source": "/Users/bezu/projects/SCACloudSchool/week3/task1-nginx/data",
-                "Destination": "/usr/share/nginx/html",
-                "Mode": "",
-                "RW": true,
-                "Propagation": "rprivate"
-            }
-        ],
-    </pre>
 </body>
 </HTML>
