@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django
+  labels:
+    app: django
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: django
+  template:
+    metadata:
+      labels:
+        app: django
+    spec:
+      containers:
+      - name: django
+        image: django-on-docker_web
+        ports:
+        - containerPort: 8000
+        env:
+        - name: SECRET_KEY
+          valueFrom: 
+            secretKeyRef:
+            name: postgresql-secret
+            key: secretkey
+        - name: DJANGO_ALLOWED_HOSTS
+          valueFrom:  
+            configMapKeyRef:
+            name: django-configmap
+            key: allowed_hosts
+        - name: SQL_ENGINE
+          valueFrom:
+            configMapKeyRef:
+            name: django-configmap
+            key: sql_engine
+        - name: SQL_DATABASE
+        valueFrom:
+          secretKeyRef:
+          name: postgresql-secret
+          key: postgresql-db-name
+        - name: SQL_USER
+        valueFrom:
+          secretKeyRef:
+          name: postgresql-secret
+          key: postgresql-db-username 
+        - name: SQL_PASSWORD
+        valueFrom:
+          secretKeyRef:
+          name: postgresql-secret
+          key: postgresql-db-password
+        - name: SQL_HOST
+        valueFrom:
+          configMapKeyRef:
+          name: django-configmap
+          key: sql_host
+        - name: SQL_PORT
+        value: 8888
