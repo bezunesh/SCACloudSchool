@@ -1,0 +1,13 @@
+# Test connecting to the public -server , instance name: frontend-server
+via browseer: http://34.73.103.49/
+
+You should see ngix welcome message.
+
+# Test if private server can access the internet, instance-name: backend-server
+- SSH into the instance
+gcloud  compute ssh --zone "us-central1-a" “backend-server” --project "scacloudschool"
+
+- access example.com
+curl example.com
+
+You should see an html content from example.com
