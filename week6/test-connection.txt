@@ -1,5 +1,5 @@
 # Test connecting to the public -server , instance name: frontend-server
-via browseer: http://34.73.103.49/
+via browser: http://34.73.103.49/
 
 You should see ngix welcome message.
 
