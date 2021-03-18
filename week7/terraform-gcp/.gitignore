@@ -1,0 +1,9 @@
+# credential file
+scacloudschool-4f556080ce23.json
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+*.tfvars
