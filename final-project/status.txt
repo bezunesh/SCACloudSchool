@@ -1,0 +1,56 @@
+Current status
+==============
+1. created two git repos:
+    - ias-polls : repo for terraform files
+    - django-polls : repo for application files
+2. created terraform configs to setup the following infrastructures
+    - a virtual private nework
+    - two subnetworks
+    - firewall rules for the nework
+    - k8 engine cluster
+    - k8 engine node-pool
+3. created a k8 deployment config file with the following resources
+    - an application container - where the image will be deployed on
+    - a cloud sql proxy container - to facilitate access to the cloud sql instance
+    - a service - load balancer - to expose the application on port 80
+4. created a circle CI pipeline with the following jobs
+    - build and push application image to GCP Container Registry
+    - publish and rollout image. (update deployment)
+    - collect appliction's static files and upload to GCP Cloud Storage Bucket
+    - a test runner
+5. adjusted the application settings to have access to:
+    - Cloud SQL instance - a PostgreSQL database
+    - Cloud storage bucket for static files
+
+
+
+Manual tasks:
+=============
+The following are currently done manually, perhaps they could be automated.
+
+1. create the inital deployment, once the infrastructure is ready: 
+kubectl apply -f file.yaml
+
+2. creating backend users ( log into the running application container and createsuper user)
+
+gcloud container clusters get-credentials myapp --zone us-east4-a --project scacloudschool \
+ && kubectl exec --stdin --tty polls-77c9c5458c-bngqk -c polls-app -- /bin/bash 
+create venv and activate it
+pip install requirements
+python3 manage.py createsuper
+...follow on screen instructions
+
+
+3. creating cloud sql instance 
+    - create postgres instance
+    - create database and users
+
+4. creating cloudproxy secrets - this could be part of the deployment config 
+
+
+ToDo
+====
+
+- Separation of environments:  staging and production
+- Writing technical article based on this project
+- Reviewing the article - by Mentor
